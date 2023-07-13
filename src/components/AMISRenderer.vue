@@ -58,6 +58,8 @@ export default {
           ...this.locals,
         },
         context: this.context,
+
+        // todo 下发 location 对象
         ...this.props,
       },
       {
@@ -66,6 +68,8 @@ export default {
         jumpTo: (url) => {
           this.$router.push(url);
         },
+
+        // todo 处理 updateLocation 整合单页路由
         ...this.env,
       },
       () => {
