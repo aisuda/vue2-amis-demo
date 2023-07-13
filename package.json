@@ -1,0 +1,32 @@
+{
+  "name": "vue2-amis-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vite",
+    "serve:dev": "vite --mode development",
+    "serve:prod": "vite --mode production",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "build:prod": "vite build --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amis": "^3.2.0",
+    "axios": "^1.4.0",
+    "element-ui": "^2.15.13",
+    "vue": "^2.7.14",
+    "vue-router": "^3.6.5",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^4.1.0",
+    "sass": "^1.63.6",
+    "vite": "^4.4.3",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-vue2": "^2.0.3",
+    "vue-template-compiler": "^2.7.14"
+  }
+}

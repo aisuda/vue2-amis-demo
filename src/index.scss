@@ -1,0 +1,22 @@
+html,
+body,
+#app,
+.wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+}
+
+#main-aside > .el-menu {
+  height: 100%;
+}
+#main-container {
+  padding: 0;
+  position: relative;
+}
