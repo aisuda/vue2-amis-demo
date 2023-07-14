@@ -2,6 +2,7 @@
   <div style="padding: 20px">
     <h2>混用 Vue 与 AMIS</h2>
 
+    <h3>AMIS部分</h3>
     <amis-renderer
       v-on:ready="ready"
       :schema="schema"
@@ -9,6 +10,7 @@
       :props="props"
     />
 
+    <h3>VUE部分</h3>
     <el-button v-on:click="reset">重置数据</el-button>
     <el-button v-on:click="submit">提交表单</el-button>
   </div>
@@ -45,7 +47,7 @@ const schema = {
       type: "button",
       label: "页面跳转",
       actionType: "link",
-      url: "/table",
+      url: "/table?page=2&perPage=10",
     },
     {
       type: "button",
@@ -79,12 +81,14 @@ export default {
       name: "Your Name",
     },
     props: {
-      onSubmit: (values) => {
-        alert("提交成功" + JSON.stringify(values, null, 2));
-      },
+      // https://aisuda.bce.baidu.com/amis/zh-CN/docs/extend/ui-library#%E7%9B%91%E5%90%AC%E5%B9%BF%E6%92%AD%E4%BA%8B%E4%BB%B6
       onBroadcast: (type, rawEvent, data) => {
         alert(type);
         console.log(type, rawEvent, data);
+      },
+
+      onFinished: (values) => {
+        alert("提交成功" + JSON.stringify(values, null, 2));
       },
     },
   }),

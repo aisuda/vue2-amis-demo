@@ -24,6 +24,14 @@ export default [
     },
   },
   {
+    path: "tabs",
+    name: "tabs",
+    component: () => import("@/views/Tabs.vue"),
+    meta: {
+      title: "Tabs",
+    },
+  },
+  {
     path: "mixed",
     name: "mixed",
     component: () => import("@/views/Mixed.vue"),

@@ -11,7 +11,6 @@ const schema = {
   body: {
     type: "crud",
     draggable: true,
-    syncLocation: false,
     api: "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/sample",
     keepItemSelectionOnPageChange: true,
     autoGenerateFilter: true,
