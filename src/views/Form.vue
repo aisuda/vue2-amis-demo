@@ -1,5 +1,5 @@
 <template>
-  <amis-renderer :schema="schema" :data="data" />
+  <amis-renderer :schema="schema" :locals="data" />
 </template>
 <script>
 import AMISRenderer from "@/components/AMISRenderer";
@@ -36,7 +36,7 @@ export default {
   computed: {},
   data: () => ({
     schema: schema,
-    data: {
+    locals: {
       // 传递初始值
       name: "Your Name",
     },

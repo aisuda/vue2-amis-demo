@@ -1,5 +1,5 @@
 <template>
-  <amis-renderer :schema="schema" :data="data" />
+  <amis-renderer :schema="schema" :locals="locals" />
 </template>
 <script>
 import AMISRenderer from "@/components/AMISRenderer";
@@ -160,7 +160,7 @@ export default {
   computed: {},
   data: () => ({
     schema: schema,
-    data: {},
+    locals: {},
   }),
 };
 </script>
