@@ -1,5 +1,5 @@
 <template>
-  <amis-renderer :schema="schema" :locals="data" />
+  <amis-renderer :schema="schema" :locals="locals" />
 </template>
 <script>
 import AMISRenderer from "@/components/AMISRenderer";
