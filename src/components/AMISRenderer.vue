@@ -1,9 +1,9 @@
 <template><div></div></template>
 
 <script>
-import "amis/sdk/sdk.js";
-import "amis/sdk/sdk.css";
-import "amis/sdk/iconfont.css";
+// import "amis/sdk/sdk.js";
+// import "amis/sdk/sdk.css";
+// import "amis/sdk/iconfont.css";
 
 // 可以不引用, 如果你不想要任何辅助类样式的话 (比如 `m-t-xs` 这种)
 // https://aisuda.bce.baidu.com/amis/zh-CN/style/index

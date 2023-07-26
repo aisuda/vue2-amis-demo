@@ -24,6 +24,12 @@ const schema = {
           placeholder: "请输入邮箱地址",
           name: "email",
         },
+        {
+          label: "Editor",
+          type: "editor",
+          placeholder: "请输入邮箱地址",
+          name: "editor",
+        },
       ],
     },
   ],

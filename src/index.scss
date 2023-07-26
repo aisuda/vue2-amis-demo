@@ -9,8 +9,9 @@ body,
   position: relative;
 }
 
-.wrapper {
+#app > .wrapper {
   display: flex;
+  padding: 0;
 }
 
 #main-aside > .el-menu {

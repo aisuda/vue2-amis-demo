@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "vite",
-    "serve:dev": "vite --mode development",
-    "serve:prod": "vite --mode production",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
-    "build:prod": "vite build --mode production"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "author": "",
   "license": "ISC",
@@ -23,8 +20,17 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
     "@vitejs/plugin-legacy": "^4.1.0",
+    "@vue/cli": "^5.0.8",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "^5.0.8",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "vite": "^4.4.3",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-vue2": "^2.0.3",
