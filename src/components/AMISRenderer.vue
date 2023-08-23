@@ -1,4 +1,4 @@
-<template><div></div></template>
+<template><div>Loading...</div></template>
 
 <script>
 // import "amis/sdk/sdk.js";
@@ -9,6 +9,46 @@
 // https://aisuda.bce.baidu.com/amis/zh-CN/style/index
 import "amis/sdk/helper.css";
 import qs from "qs";
+
+function loadScript(src, callback) {
+  const script = document.createElement("script");
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", src);
+  script.onload = () => callback();
+  script.onerror = () => callback(new Error(`Failed to load ${src}`));
+  document.body.appendChild(script);
+}
+
+function loadStyles(styles) {
+  for (const path of styles) {
+    const style = document.createElement("link");
+    style.setAttribute("rel", "stylesheet");
+    style.setAttribute("type", "text/css");
+    style.setAttribute("href", path);
+    document.head.appendChild(style);
+  }
+}
+
+function loadSDK() {
+  return new Promise((resolve, reject) => {
+    if (window.amisRequire) {
+      resolve();
+      return;
+    }
+    loadStyles([
+      "/amis/sdk/sdk.css",
+      "/amis/sdk/helper.css",
+      "/amis/sdk/iconfont.css",
+    ]);
+    loadScript("/amis/sdk/sdk.js", (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve();
+    });
+  });
+}
 
 export default {
   name: "AMISRenderer",
@@ -52,7 +92,9 @@ export default {
           search: `?${qs.stringify(current.query)}`,
         };
       },
+      loading: false,
       amisInstance: null,
+      unmounted: false,
     };
   },
 
@@ -67,7 +109,17 @@ export default {
       this.updateProps();
     },
   },
-  mounted() {
+  async mounted() {
+    try {
+      this.loading = true;
+      await loadSDK();
+    } finally {
+      this.loading = false;
+    }
+    if (this.unmounted) {
+      return;
+    }
+
     const scoped = amisRequire("amis/embed");
     const { normalizeLink } = amisRequire("amis");
     const router = this.$router;
@@ -146,6 +198,7 @@ export default {
   },
 
   destroyed() {
+    this.unmounted = true;
     this.amisInstance?.unmount();
   },
 };
