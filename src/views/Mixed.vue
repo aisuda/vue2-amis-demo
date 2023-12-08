@@ -17,6 +17,8 @@
 </template>
 <script>
 import AMISRenderer from "@/components/AMISRenderer";
+import Vue from "vue";
+import cloneDeep from 'lodash/cloneDeep';
 
 const schema = {
   type: "form",
@@ -34,7 +36,7 @@ const schema = {
       type: "input-email",
       required: true,
       placeholder: "请输入邮箱地址",
-      name: "email",
+      name: "emailObj.email",
     },
   ],
   actions: [
@@ -76,10 +78,12 @@ export default {
   data: () => ({
     instance: null,
     schema: schema,
-    locals: {
-      // 传递初始值
-      name: "Your Name",
-    },
+    state: Vue.observable({
+      name: "Initial Name",
+      emailObj: {
+        email: "Initial Email",
+      },
+    }),
     props: {
       // https://aisuda.bce.baidu.com/amis/zh-CN/docs/extend/ui-library#%E7%9B%91%E5%90%AC%E5%B9%BF%E6%92%AD%E4%BA%8B%E4%BB%B6
       onBroadcast: (type, rawEvent, data) => {
@@ -93,14 +97,26 @@ export default {
     },
   }),
 
+  computed: {
+    locals() {
+      return cloneDeep(this.state);
+    },
+  },
+
   methods: {
     ready({ instance }) {
       this.instance = instance;
     },
     reset() {
-      this.locals = {
-        name: "Reset Name",
-      };
+      this.state.emailObj.email = "Reset Email";
+      this.state.name = "Reset Name";
+
+      // this.locals = {
+      //   name: "Reset Name",
+      //   emailObj: {
+      //     email: "Reset Email",
+      //   },
+      // };
     },
     submit() {
       this.instance?.getComponentByName("theform").doAction({
