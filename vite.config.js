@@ -3,6 +3,7 @@ import legacy from "@vitejs/plugin-legacy";
 import { createVuePlugin } from "vite-plugin-vue2";
 import viteCompression from "vite-plugin-compression";
 import path from "path";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const HOST = "0.0.0.0";
 const REPLACEMENT = `${path.resolve(__dirname, "./src")}/`;
@@ -28,6 +29,14 @@ export default (/** if you want to use mode : { mode }*/) => {
       ],
     },
     plugins: [
+      viteStaticCopy({
+        targets: [
+          {
+            src: path.resolve(__dirname, './node_modules/amis/sdk') + '/[!.]*',
+            dest: 'amis/sdk'
+          }
+        ]
+      }),
       createVuePlugin(/* options */),
       legacy({
         targets: ["ie >= 11"],

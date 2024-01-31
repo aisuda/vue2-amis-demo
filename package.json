@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "serve": "vite",
     "serve:dev": "vite --mode development",
@@ -27,6 +28,7 @@
     "sass": "^1.63.6",
     "vite": "^4.4.3",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-static-copy": "^1.0.1",
     "vite-plugin-vue2": "^2.0.3",
     "vue-template-compiler": "^2.7.14"
   }

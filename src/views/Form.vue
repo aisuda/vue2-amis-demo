@@ -24,6 +24,12 @@ const schema = {
           placeholder: "请输入邮箱地址",
           name: "email",
         },
+        {
+          type: 'editor',
+          name: 'js',
+          label: 'JS',
+          language: 'javascript',
+        }
       ],
     },
   ],

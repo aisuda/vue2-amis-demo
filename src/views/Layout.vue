@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="app-wrapper">
     <el-container>
       <el-container>
         <el-aside :class="{ collapse: sidebarCollapse }" id="main-aside">
