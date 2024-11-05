@@ -121,7 +121,7 @@ export default {
     }
 
     const scoped = amisRequire("amis/embed");
-    const { normalizeLink } = amisRequire("amis");
+    const { normalizeLink } = amisRequire("amis-core");
     const router = this.$router;
     const instance = scoped.embed(
       this.$el,

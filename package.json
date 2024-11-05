@@ -15,7 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amis": "^3.2.0",
+    "amis-core": "6.9.0",
+    "amis-formula": "6.9.0",
+    "amis-ui": "6.9.0",
+    "amis": "6.9.0",
     "axios": "^1.4.0",
     "element-ui": "^2.15.13",
     "qs": "^6.11.2",
